@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DirectoryApp.Register">
+
+    <Grid 
+        FlexLayout.AlignSelf="Center"
+        BackgroundColor="White">
+        <Grid
+            ColumnDefinitions="50*,50*"
+            ColumnSpacing="20"
+            HorizontalOptions="Center"
+            VerticalOptions="Center">
+            
+            <VerticalStackLayout
+                Grid.Column="0"
+                Spacing="20"
+                WidthRequest="350"
+                >
+                <HorizontalStackLayout>
+                    <Label
+                        Text="Student ID"
+                        TextColor="Black"
+                        WidthRequest="150"
+                        VerticalOptions="Center"/>
+                    <Entry
+                        x:Name="studentID"
+                        MaxLength="5"
+                        PlaceholderColor="black"
+                        TextColor="Black"
+                        BackgroundColor="LightGray"
+                        WidthRequest="200"
+                        TextChanged="OnStudentIDTextChanged"
+                        ToolTipProperties.Text="“Required. Numeric values only”"/>
+                </HorizontalStackLayout>
+                <HorizontalStackLayout>
+                    <Label
+                        Text="First Name"
+                        TextColor="Black"
+                        WidthRequest="150"
+                        VerticalOptions="Center"/>
+                    <Entry
+                        x:Name="firstName"
+                        PlaceholderColor="Black"
+                        TextColor="Black"
+                        BackgroundColor="LightGray"
+                        WidthRequest="200"
+                        MaxLength="20"
+                        TextChanged="OnFirstNameChanged"
+                        ToolTipProperties.Text="Required"/>
+                </HorizontalStackLayout>
+                <HorizontalStackLayout>
+                    <Label
+                        Text="Middle Name"
+                        TextColor="Black"
+                        WidthRequest="150"
+                        VerticalOptions="Center"/>
+                    <Entry
+                        x:Name="middleName"
+                        PlaceholderColor="Black"
+                        TextColor="Black"
+                        BackgroundColor="LightGray"
+                        WidthRequest="200"
+                        MaxLength="20"
+                        TextChanged="OnMiddleNameChanged"
+                        ToolTipProperties.Text="Required"/>
+                </HorizontalStackLayout>
+                <HorizontalStackLayout>
+                    <Label
+                        Text="Last Name"
+                        TextColor="Black"
+                        WidthRequest="150"
+                        VerticalOptions="Center"/>
+                    <Entry
+                        x:Name="lastName"
+                        PlaceholderColor="Black"
+                        TextColor="Black"
+                        BackgroundColor="LightGray"
+                        WidthRequest="200"
+                        MaxLength="20"
+                        TextChanged="OnLastNameChanged"
+                        ToolTipProperties.Text="Required"/>
+                </HorizontalStackLayout>
+                <HorizontalStackLayout>
+                    <Label
+                        Text="Email"
+                        TextColor="Black"
+                        WidthRequest="150"
+                        VerticalOptions="Center"/>
+                    <Entry
+                        x:Name="emailEntry"
+                        PlaceholderColor="Black"
+                        TextColor="Black"
+                        BackgroundColor="LightGray"
+                        WidthRequest="200"
+                        MaxLength="50"
+                        TextChanged="OnEmailTextChanged"
+                        ToolTipProperties.Text="Required"/>
+                </HorizontalStackLayout>
+                <HorizontalStackLayout>
+                    <Label
+                        Text="Password"
+                        TextColor="Black"
+                        WidthRequest="150"
+                        VerticalOptions="Center"/>
+                    <Entry
+                        x:Name="passwordEntry"
+                        IsPassword="True"
+                        MaxLength="8"
+                        PlaceholderColor="Black"
+                        TextColor="Black"
+                        BackgroundColor="{Binding PasswordBackgroundColor}"
+                        WidthRequest="200"
+                        ToolTipProperties.Text="Required. Minimum of 8 characters"
+                        TextChanged="OnEntryAlphaNumericTextChanged"/>
+                </HorizontalStackLayout>
+                <HorizontalStackLayout>
+                    <Label
+                        Text="Confirm Password"
+                        TextColor="Black"
+                        WidthRequest="150"
+                        VerticalOptions="Center"/>
+                    <Entry
+                        x:Name="confirmpasswordEntry"
+                        IsPassword="True"
+                        MaxLength="8"
+                        PlaceholderColor="Black"
+                        TextColor="Black"
+                        BackgroundColor="{Binding ConfirmPasswordBackgroundColor}"
+                        WidthRequest="200"
+                        ToolTipProperties.Text="“Password” and “Confirm Password” should match"
+                        TextChanged="OnEntryAlphaNumericTextChanged2"/>
+                </HorizontalStackLayout>
+                
+                <Button
+                    x:Name="submitButton"
+                    Text="Submit"
+                    FontAttributes="Bold"
+                    WidthRequest="100"
+                    TextColor="White"
+                    HorizontalOptions="End"
+                    BackgroundColor="Blue"
+                    Clicked="OnSubmitButtonClicked"
+                    IsEnabled="False"/>
+            
+            </VerticalStackLayout>
+
+            <VerticalStackLayout
+                Grid.Column="1"
+                Spacing="20"
+                WidthRequest="350"
+                >
+                <HorizontalStackLayout>
+                    <Label
+                        Text="Gender"
+                        TextColor="black"
+                        WidthRequest="150"
+                        VerticalOptions="Center"/>
+                    <RadioButton
+                        x:Name="radio1"
+                        Content="Male"
+                        TextColor="Black"/>
+                    <RadioButton
+                        x:Name="radio2"
+                        Content="Female"
+                        TextColor="Black"/>
+                </HorizontalStackLayout>
+                <HorizontalStackLayout>
+                    <Label
+                        Text="Birth Date"
+                        TextColor="Black"
+                        WidthRequest="150"
+                        VerticalOptions="Center"/>
+                    <DatePicker 
+                        x:Name="datePicker"
+                        WidthRequest="200"
+                        BackgroundColor="LightGray"
+                        TextColor="Black"
+                        DateSelected="OnDateSelected"
+                        ToolTipProperties.Text="Optional"/>
+                </HorizontalStackLayout>
+                <HorizontalStackLayout>
+                    <Label
+                        Text="Mobile No."
+                        TextColor="Black"
+                        WidthRequest="150"
+                        VerticalOptions="Center"/>
+                    <Entry
+                        x:Name="mobileNo"
+                        PlaceholderColor="Black"
+                        TextColor="Black"
+                        BackgroundColor="LightGray"
+                        MaxLength="11"
+                        WidthRequest="200"
+                        TextChanged="OnMobileNoTextChanged"
+                        ToolTipProperties.Text="Number input only"/>
+                </HorizontalStackLayout>
+                <HorizontalStackLayout>
+                    <Label
+                        Text="City"
+                        TextColor="Black"
+                        WidthRequest="150"
+                        VerticalOptions="Center"/>
+                    <Entry
+                        x:Name="city"
+                        PlaceholderColor="Black"
+                        TextColor="Black"
+                        BackgroundColor="LightGray"
+                        MaxLength="100"
+                        WidthRequest="200"
+                        TextChanged="OnCityTextChanged"
+                        Completed="OnCityCompleted"
+                        ToolTipProperties.Text="Optional"/>
+                </HorizontalStackLayout>
+                <HorizontalStackLayout>
+                    <Label
+                        Text="School Program"
+                        TextColor="Black"
+                        WidthRequest="150"
+                        VerticalOptions="Center"/>
+                    <Picker
+                        x:Name="schoolProgramPicker" 
+                        TextColor="Black"
+                        WidthRequest="200"
+                        BackgroundColor="LightGray"
+                        ToolTipProperties.Text="Required">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>-SELECT-</x:String>
+                                <x:String>School of Engineering</x:String>
+                                <x:String>School of Computer Studies</x:String>
+                                <x:String>School of Law</x:String>
+                                <x:String>School of Arts and Sciences</x:String>
+                                <x:String>School of Business and Management</x:String>
+                                <x:String>School of Education</x:String>
+                                <x:String>School of Allied Medical Sciences</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+                    <Label
+                        x:Name="selectedOptionLabel"
+                        HorizontalOptions="Center"/>
+                </HorizontalStackLayout>
+                <HorizontalStackLayout>
+                    <Label
+                        Text="Course"
+                        TextColor="Black"
+                        WidthRequest="150"
+                        VerticalOptions="Center"/>
+                    <Picker
+                        x:Name="coursePicker"
+                        TextColor="Black"
+                        WidthRequest="200"
+                        BackgroundColor="LightGray"
+                        ToolTipProperties.Text="Required">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>-SELECT-</x:String>
+                                <x:String>Bachelor of Science in Civil Engineering</x:String>
+                                <x:String>Bachelor of Science in Computer Engineering</x:String>
+                                <x:String>Bachelor of Science in Electrical Engineering</x:String>
+                                <x:String>Bachelor of Science in Electronics Engineering</x:String>
+                                <x:String>Bachelor of Science in Industrial Engineering</x:String>
+                                <x:String>Bachelor of Science in Mechanical Engineering</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+
+                </HorizontalStackLayout>
+                <HorizontalStackLayout>
+                    <Label
+                        Text="Year Level"
+                        TextColor="Black"
+                        WidthRequest="150"
+                        VerticalOptions="Center"/>
+                    <Picker
+                        x:Name="yearLevelPicker"
+                        TextColor="Black"
+                        WidthRequest="200"
+                        BackgroundColor="LightGray"
+                        ToolTipProperties.Text="Required">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>-SELECT-</x:String>
+                                <x:String>1st Year</x:String>
+                                <x:String>2nd Year</x:String>
+                                <x:String>3rd Year</x:String>
+                                <x:String>4th Year</x:String>
+                                <x:String>5th Year</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+                </HorizontalStackLayout>
+
+                <Button
+                    Text="Reset"
+                    FontAttributes="Bold"
+                    WidthRequest="100"
+                    TextColor="White"
+                    BackgroundColor="Gray"
+                    HorizontalOptions="Start"
+                    Clicked="OnResetButtonClicked"/>
+                
+            </VerticalStackLayout>
+        </Grid>
+    </Grid>
+</ContentPage>

@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DirectoryApp.MainPage">
+
+    <Grid FlexLayout.AlignSelf="Center"
+          BackgroundColor="White">
+
+        <StackLayout
+            Spacing="20"
+            Padding="30,0"
+            VerticalOptions="Center">
+
+            <VerticalStackLayout 
+                VerticalOptions="Center"
+                HorizontalOptions="Center">
+
+                <Label
+                    Text="Username"
+                    TextColor="Black"/>
+
+                <Entry 
+                    x:Name="usernameEntry"
+                    Placeholder="Enter username"
+                    MaxLength="20"
+                    TextColor="Black"
+                    BackgroundColor="LightGrey"
+                    WidthRequest="200"
+                    TextChanged="OnEntryTextChanged"
+                    Completed="OnEntryCompleted" />
+
+            </VerticalStackLayout>
+
+            <VerticalStackLayout
+                VerticalOptions="Center"
+                HorizontalOptions="Center">
+
+                <Label
+                    Text="Password" 
+                    TextColor="Black"/>
+
+                <Entry 
+                    x:Name="passwordEntry"
+                    Placeholder="Enter password"
+                    BackgroundColor="LightGrey"
+                    IsPassword="True"
+                    TextColor="Black"
+                    WidthRequest="200"
+                    MaxLength="20"
+                    TextChanged="OnEntryTextChanged"
+                    Completed="OnEntryCompleted" />
+
+            </VerticalStackLayout>
+
+            <Button
+                x:Name="CounterBtn"
+                TextColor="White"
+                BorderColor="DarkBlue"
+                BackgroundColor="DarkBlue"
+                Text="Login"
+                FontAttributes="Bold"
+                Clicked="OnLoginButtonClicked"
+                HorizontalOptions="Center" />
+
+            <Label Text="New user? Register here"
+               TextColor="Blue"
+               TextDecorations="Underline"
+               HorizontalOptions="Center">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding TapCommand}"/>
+                </Label.GestureRecognizers>
+            </Label>
+
+            <Label
+                x:Name="LoginMessage"
+                Text=""
+                TextColor="black"
+                HorizontalOptions="Center"/>
+        </StackLayout>
+    </Grid>
+
+</ContentPage>
